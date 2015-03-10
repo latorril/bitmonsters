@@ -16,6 +16,11 @@ public class Interaction : MonoBehaviour {
 
 	public GameObject _spy;
 
+	public AudioSource _bicycleSong;
+
+	bool _bicycle;
+	bool _biketrigger;
+
 	int _taps;
 
 	int _day = 73;//System.DateTime.Now.DayOfYear;
@@ -28,6 +33,9 @@ public class Interaction : MonoBehaviour {
 		//_tapButton.onClick.AddListener( tapButtonPressed );
 
 		_message = _messageObject.GetComponent<Text>();
+
+		_bicycle = false;
+		_biketrigger = false;
 		
 		_egg.SetActive(false);
 		_spy.SetActive(false);
@@ -45,6 +53,18 @@ public class Interaction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	}
+
+	public void playSong(){
+		if ( _bicycle == true && _bicycleSong.isPlaying == true ) {
+			_bicycleSong.Pause();
+			_bicycle = false;
+		}
+		else if ( _bicycle == false && _bicycleSong.isPlaying == false ) {
+			_bicycleSong.UnPause();
+			_bicycle = true;
+		}
+	}
+
 	public void tapButtonPressed(){
 
 		if ( _day == 69 ){
@@ -107,7 +127,14 @@ public class Interaction : MonoBehaviour {
 				_message.text = "Torri says - SWAWESOME - whatever that means.";
 			}
 			if( _taps >= 2 ){
-				_message.text = "Biiiiiicycle..! Biiiiicycle..!";
+				_message.text = "♬ Biiiiiicycle..! ♬ Biiiiicycle..! ";
+			}
+			if( _taps >= 2 ){
+				if( _biketrigger == false){
+					_biketrigger = true;
+					_bicycle = true;
+					_bicycleSong.Play();
+				}
 			}
 		}
 		//SUN
@@ -159,7 +186,7 @@ public class Interaction : MonoBehaviour {
 			}
 		}
 		_taps ++;
-		Debug.Log(_taps);
+		//Debug.Log(_taps);
 	}
 
 }
