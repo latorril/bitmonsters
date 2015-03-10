@@ -23,7 +23,7 @@ public class Interaction : MonoBehaviour {
 
 	int _taps;
 
-	int _day = 73;//System.DateTime.Now.DayOfYear;
+	int _day = System.DateTime.Now.DayOfYear;
 	//int _hour = System.DateTime.Now.Hour;
 	
 	// Use this for initialization
@@ -143,7 +143,7 @@ public class Interaction : MonoBehaviour {
 				_message.text = "O hai Mark.";
 			}
 			if( _taps == 1 ){
-				_message.text = "Sunday? You shoudl chill, and take a nap today.";
+				_message.text = "Sunday? You should chill - take a nap today.";
 			}
 			if( _taps >= 2 ){
 				_message.text = "Jesus says so.";
@@ -158,22 +158,22 @@ public class Interaction : MonoBehaviour {
 				_message.text = "Wha! That still tickles.";
 			}
 			if( _taps >= 2 ){
-				_message.text = "0u0";
+				_message.text = "0w0";
 			}
 		}
 		//TUE
 		if ( _day == 76 ){
 			if( _taps <= 0 ){
-				_message.text = "Mark waited apprehensively.";
-			}
-			if( _taps == 1 ){
 				_message.text = "What happens on a Tuesday...?";
 			}
+			if( _taps == 1 ){
+				_message.text = "Mark waited with an unnecessary apprehension.";
+			}
 			if( _taps == 2 ){
-				_message.text = "WAH! Torri says that she's coming back!";
+				_message.text = "WAH! Torri's coming back!";
 			}
 			if( _taps >= 3 ){
-				_message.text = "WAH! Torri says that she's coming back!";
+				_message.text = "yus!";
 			}
 		}
 		//Til next year
